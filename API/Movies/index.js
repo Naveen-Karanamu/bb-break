@@ -38,15 +38,19 @@ Desc: updating a movie
 Parameters:
 Method:PUT
 */
-Router.put("update/:movie_id", async (req, res) => {
-  const updateMovie = await MovieModel.findByIdAndUpdate(
+Router.put("/update/:movie_id", async (req, res) => {
+  const updateMovie = await MovieModel.findOneAndUpdate(
     {
       movie_id: req.params.movie_id,
     },
     {
       title: req.body.movieTitle,
+    },
+    {
+        new:true,
     }
   );
+  return res.json({ Movie: updateMovie, message: "Movie's title updated" });
 });
 
 /*
