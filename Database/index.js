@@ -23,7 +23,7 @@ const movies = [
     {
       id: 1,
       name: "Rajamouli",
-      movies: ["1"],
+      movies: ["1","4","6"],
     },
   ];
   
