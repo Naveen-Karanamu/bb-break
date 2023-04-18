@@ -14,9 +14,9 @@ https://localhost:3001/movie/create/mov
 Router.post("/create/mov",async(req,res)=>{
 try{
 const newMovie=req.body.newMovie;
-const addNewMovie=await MovieModel.create(newMovie)
+const addNewMovie=await MovieModel.create(newMovie);
 
-return res.json({Movie:addNewMovie,message:"movie is created"})
+return res.json({movie:addNewMovie,message:"movie is created"})
 }catch{
 return res.json({error:"Movie isn't pushed"})
 }
