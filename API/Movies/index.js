@@ -14,7 +14,23 @@ https://localhost:3001/movie/create/mov
 Router.post("/create/mov",async(req,res)=>{
 try{
 const newMovie=req.body.newMovie;
-}catch{
+const addNewMovie=await MovieModel.create(newMovie)
 
+return res.json({Movie:addNewMovie,message:"movie is created"})
+}catch{
+return res.json({error:"Movie isn't pushed"})
 }
 })
+
+/*
+Route:/get/movie
+Desc: creating a new movie
+Parameters:
+Method:GET
+*/
+Router.get("/get/movie",async (req,res)=>{
+    const getAllMovies = await MovieModel.find()
+    return res.json({Movies:getAllMovies})
+})
+
+module.exports=Router;
