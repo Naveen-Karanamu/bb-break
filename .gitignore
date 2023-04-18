@@ -1,3 +1,5 @@
 /node_modules
 
 /.env
+
+mongodb+srv://gfgsrm:navgfg@bb.c3tz5xf.mongodb.net/test
