@@ -45,9 +45,6 @@ Router.put("/update/:movie_id", async (req, res) => {
     },
     {
       title: req.body.movieTitle,
-    },
-    {
-        new:true,
     }
   );
   return res.json({ Movie: updateMovie, message: "Movie's title updated" });
