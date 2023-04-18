@@ -11,6 +11,8 @@ const Producers=require("./API/Producers")
 
 const bb = express()
 
+bb.use("/movie",Movies)
+
 bb.use(express.json())
 
 bb.listen(3001,()=>console.log("Server is running 🚀"))
