@@ -1,18 +1,26 @@
-const express = require ("express");
+// requiring env
+require("dotenv").config();
 
-require("dotenv").config()
-const mongoose = require("mongoose")
+// Imported the express framework
+const express = require("express");
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URL).then(()=>console.log("Database Connected 🔥"))
+// Initializing Microservices Routes
+const Movies=require("./API/Movies");
 
-const Movies=require("./API/Movies")
-const Directors=require("./API/Directors")
-const Producers=require("./API/Producers")
+// Initializing
+const bb = express();
 
-const bb = express()
+// Configurations
+bb.use(express.json());
 
-bb.use("/movie",Movies)
+// establishing database connection
+mongoose.connect(process.env.MONGODB_URL).then(() => console.log("Connection established 🔥"));
 
-bb.use(express.json())
+// Initializing Microservices
+bb.use("/movie",Movies);
 
-bb.listen(3001,()=>console.log("Server is running 🚀"))
+// Porting
+bb.listen(3001, () => console.log("Server Running 🚀"));
+
+
